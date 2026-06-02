@@ -1,0 +1,7 @@
+{
+  "slides": [
+    { "imagen": "aviso1.jpg", "alt": "Aviso importante 1" },
+    { "imagen": "aviso2.jpg", "alt": "Aviso importante 2" },
+    { "imagen": "aviso3.jpg", "alt": "Aviso importante 3" }
+  ]
+}

@@ -1,0 +1,13 @@
+---
+// src/components/LinkPJ.astro
+// Definimos las propiedades que recibirá el componente
+const { icon, title, url } = Astro.props;
+---
+
+<a href={url} class="block group">
+  <div class="flex flex-col items-center justify-center p-6 rounded-lg border shadow-md bg-white hover:bg-gray-50 transition duration-300">
+    <!-- Usamos el ícono que viene en las props -->
+    <img src={icon} alt={title} width="120" height="90" class="mb-4" />
+    <h2 class="text-base font-bold text-gray-800 group-hover:text-blue-900 transition">{title}</h2>
+  </div>
+</a>
