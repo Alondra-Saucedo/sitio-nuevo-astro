@@ -3,21 +3,42 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
+// 1. Agrega aquí todos tus archivos. 
+// Solo asegúrate de que estén en /public/assets/
+const slides = [
+  { src: "/assets/carrusel-magistrada-magistrado-por-un-dia-2026-resultados.jpg", alt: "Resultados Magistrado" },
+  { src: "/assets/carrusel-cambio-domicilio-2026-04-27-actuarios.jpg", alt: "Cambio domicilio actuarios" },
+  { src: "/assets/carrusel-cambio-domicilio-2026-04-27-mercantil-letrados.jpg", alt: "Cambio domicilio mercantil y letrados" },
+  { src: "/assets/carrusel-cambio-domicilio-2026-04-13-cemasc.jpg", alt: "Cambio domicilio cemasc" },
+  { src: "/assets/carrusel-cambio-domicilio-2026-04-13.jpg", alt: "Cambio domicilio uda" },
+  { src: "/assets/carrusel-diplomado-cnpcf-2026-1.jpg", alt: "Diplomado iej" },
+  { src: "/assets/carrusel-cambio-domicilio-2026-03-17.jpg", alt: "Cambio de domicilio juzgados" },
+  { src: "/assets/carrusel-informe-anual-de-actividades-2025-3.jpg", alt: "Informe anual" },
+  { src: "/assets/imagen9.jpg", alt: "Descripción 9" },
+  { src: "/assets/imagen10.jpg", alt: "Descripción 10" },
+  { src: "/assets/imagen11.jpg", alt: "Descripción 11" },
+  { src: "/assets/imagen12.jpg", alt: "Descripción 12" },
+  { src: "/assets/imagen13.jpg", alt: "Descripción 13" }
+];
 ---
 
-<!-- Se fuerza una altura fija (h-64) para que el carrusel no cambie de tamaño -->
 <div class="swiper mySwiper w-full h-64 overflow-hidden shadow-lg rounded-xl">
   <div class="swiper-wrapper">
-    <!-- Cada slide debe tener h-full para llenar el contenedor -->
-    <div class="swiper-slide flex items-center justify-center bg-blue-900 text-white h-full text-2xl font-bold">Aviso 1</div>
-    <div class="swiper-slide flex items-center justify-center bg-indigo-800 text-white h-full text-2xl font-bold">Aviso 2</div>
-    <div class="swiper-slide flex items-center justify-center bg-blue-700 text-white h-full text-2xl font-bold">Aviso 3</div>
+    {slides.map((slide) => (
+      <div class="swiper-slide h-full">
+        <img 
+          src={slide.src} 
+          alt={slide.alt} 
+          class="w-full h-full object-cover" 
+        />
+      </div>
+    ))}
   </div>
 
-  <!-- Controles -->
   <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev !text-white !w-8"></div>
-  <div class="swiper-button-next !text-white !w-8"></div>
+  <div class="swiper-button-prev text-white! w-8!"></div>
+  <div class="swiper-button-next text-white! w-8!"></div>
 </div>
 
 <script>
@@ -27,26 +48,17 @@ import 'swiper/css/pagination';
   new Swiper('.mySwiper', {
     modules: [Navigation, Pagination, Autoplay],
     loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    pagination: { 
-      el: '.swiper-pagination',
-      clickable: true 
-    },
-    navigation: { 
-      nextEl: '.swiper-button-next', 
-      prevEl: '.swiper-button-prev' 
-    },
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
   });
 </script>
 
 <style is:global>
-  /* Usamos is:global para que los estilos de Swiper se apliquen correctamente */
   .swiper-button-next::after, .swiper-button-prev::after {
     font-size: 1.5rem !important;
     font-weight: bold;
+    color: white !important;
   }
   .swiper-pagination-bullet-active {
     background-color: white !important;

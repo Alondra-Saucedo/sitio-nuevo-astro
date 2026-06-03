@@ -2,7 +2,6 @@
 // src/layouts/LayoutPJ.astro
 const { title = "Poder Judicial del Estado de Coahuila" } = Astro.props;
 import '../styles/global.css';
-import logoOficial from '../assets/navegacion-logotipo.png';
 ---
 
 <!DOCTYPE html>
@@ -14,23 +13,21 @@ import logoOficial from '../assets/navegacion-logotipo.png';
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col justify-between">
 
-    <!-- ENCABEZADO INSTITUCIONAL RESPONSIVO -->
     <header class="bg-white border-b border-gray-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <!-- El logo oficial del sitio web adaptado al Header -->
                 <div class="flex items-center">
                     <img 
-                        src={logoOficial.src} 
+                        src="/assets/navegacion-logotipo.png" 
                         alt="Logo Poder Judicial de Coahuila" 
                         class="h-14 w-auto object-contain"
                     />
                 </div>
                 <h1 class="text-sm md:text-lg font-bold text-gray-700 leading-tight tracking-tight hidden sm:block">
-                    Poder Judicial del Estado de Coahuila
+                    Poder Judicial del Estado de Coahuila de Zaragoza
                 </h1>
             </div>
-            </div>
+            
             <nav class="flex space-x-4 text-sm font-medium text-gray-600">
                 <a href="/" class="hover:text-blue-700 transition">Inicio</a>
                 <a href="/buscar" class="hover:text-blue-700 transition font-semibold text-blue-600">Buscador</a>
@@ -38,9 +35,8 @@ import logoOficial from '../assets/navegacion-logotipo.png';
         </div>
     </header>
 
-    <!-- CONTENIDO DINÁMICO DE LAS PÁGINAS -->
     <main class="grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <slot /> <!-- Aquí es donde Astro inyectará el contenido de cada página -->
+        <slot /> 
     </main>
 
 </body>
