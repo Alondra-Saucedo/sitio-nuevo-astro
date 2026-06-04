@@ -1,13 +1,64 @@
 ---
 // src/components/HeaderPJ.astro
 ---
-<header class="bg-[#3e5934] text-white p-4">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <!-- Aquí irá tu logo -->
-        <div class="text-xl font-bold">Poder Judicial del Estado de Coahuila de Zaragoza</div>
-        <nav class="flex gap-6">
-            <a href="/" class="hover:text-gray-200">Inicio</a>
-            <a href="/buscar" class="hover:text-gray-200">Buscador</a>
-        </nav>
+
+<header class="w-full">
+    <!-- Franja superior (Logo y Redes) -->
+    <div
+        class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center bg-white"
+    >
+        <img
+            src="/logo-pjecz.png"
+            alt="Poder Judicial Coahuila"
+            class="h-16 w-auto"
+        />
+
+        <div class="flex gap-4 opacity-70">
+            <!-- Aquí puedes usar iconos de FontAwesome o imágenes de redes -->
+            <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+            <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+            <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+            <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+        </div>
+    </div>
+
+    <!-- Franja inferior (Navegación y Buscador) -->
+    <div class="bg-[#56653a] text-white">
+        <div
+            class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"
+        >
+            <nav
+                class="flex gap-8 text-sm font-semibold uppercase tracking-wide"
+            >
+                <a href="#" class="flex items-center gap-1 hover:text-gray-200"
+                    >CONÓCENOS ▾</a
+                >
+                <a href="#" class="flex items-center gap-1 hover:text-gray-200"
+                    >CONSULTAS ▾</a
+                >
+                <a href="#" class="flex items-center gap-1 hover:text-gray-200"
+                    >SALA DE PRENSA ▾</a
+                >
+                <a href="#" class="flex items-center gap-1 hover:text-gray-200"
+                    >TRANSPARENCIA ▾</a
+                >
+                <a href="#" class="hover:text-gray-200">ESTUDIANTES</a>
+            </nav>
+
+            <!-- Buscador de Google -->
+            <div
+                class="bg-white text-gray-500 px-3 py-1.5 rounded flex items-center gap-2 text-sm"
+            >
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    ></path></svg
+                >
+                <span>OPTIMIZADO POR Google</span>
+            </div>
+        </div>
     </div>
 </header>
