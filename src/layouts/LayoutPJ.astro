@@ -1,43 +1,30 @@
 ---
 // src/layouts/LayoutPJ.astro
 const { title = "Poder Judicial del Estado de Coahuila" } = Astro.props;
-import '../styles/global.css';
+import "../styles/global.css";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-</head>
-<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col justify-between">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <!-- El script de Google debe ir aquí en el head -->
+        <script async src="https://cse.google.com/cse.js?cx=33664f175580b4923"
+        ></script>
+    </head><div class="gcse-search"></div>
 
-    <header class="bg-white border-b border-gray-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="flex items-center">
-                    <img 
-                        src="/assets/navegacion-logotipo.png" 
-                        alt="Logo Poder Judicial de Coahuila" 
-                        class="h-14 w-auto object-contain"
-                    />
-                </div>
-                <h1 class="text-sm md:text-lg font-bold text-gray-700 leading-tight tracking-tight hidden sm:block">
-                    Poder Judicial del Estado de Coahuila de Zaragoza
-                </h1>
-            </div>
-            
-            <nav class="flex space-x-4 text-sm font-medium text-gray-600">
-                <a href="/" class="hover:text-blue-700 transition">Inicio</a>
-                <a href="/buscar" class="hover:text-blue-700 transition font-semibold text-blue-600">Buscador</a>
-            </nav>
-        </div>
-    </header>
+    <body
+        class="bg-gray-50 text-gray-900 min-h-screen flex flex-col justify-between"
+    >
+        <!-- Asegúrate de incluir tu componente HeaderPJ aquí -->
+        <slot />
 
-    <main class="grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <slot /> 
-    </main>
+        <main class="grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Contenido de la página -->
+        </main>
+    </body>
 
-</body>
+
 </html>

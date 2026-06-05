@@ -4,8 +4,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// 1. Agrega aquí todos tus archivos.
-// Solo asegúrate de que estén en /public/assets/
 const slides = [
     {
         src: "/assets/carrusel-magistrada-magistrado-por-un-dia-2026-resultados.jpg",
@@ -59,15 +57,17 @@ const slides = [
 ];
 ---
 
-<div class="swiper mySwiper w-full h-64 overflow-hidden shadow-lg rounded-xl">
+<div
+    class="swiper mySwiper w-full h-auto min-h-[300px] shadow-lg rounded-xl bg-gray-100 overflow-hidden"
+>
     <div class="swiper-wrapper">
         {
             slides.map((slide) => (
-                <div class="swiper-slide h-full">
+                <div class="swiper-slide flex items-center justify-center">
                     <img
                         src={slide.src}
                         alt={slide.alt}
-                        class="w-full h-full object-cover"
+                        class="w-full h-auto max-h-[500px] object-contain"
                     />
                 </div>
             ))
@@ -86,7 +86,7 @@ const slides = [
     new Swiper(".mySwiper", {
         modules: [Navigation, Pagination, Autoplay],
         loop: true,
-        autoplay: { delay: 3000, disableOnInteraction: false },
+        autoplay: { delay: 4000, disableOnInteraction: false }, // Aumenté un poco el tiempo para leer mejor
         pagination: { el: ".swiper-pagination", clickable: true },
         navigation: {
             nextEl: ".swiper-button-next",
@@ -100,9 +100,12 @@ const slides = [
     .swiper-button-prev::after {
         font-size: 1.5rem !important;
         font-weight: bold;
-        color: white !important;
+        color: #56653a !important; /* Cambiado a tu color institucional para mejor contraste */
+        background: rgba(255, 255, 255, 0.7);
+        padding: 10px;
+        border-radius: 50%;
     }
     .swiper-pagination-bullet-active {
-        background-color: white !important;
+        background-color: #56653a !important;
     }
 </style>
