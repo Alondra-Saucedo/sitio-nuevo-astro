@@ -2,9 +2,9 @@
 // src/components/HeaderPJ.astro
 ---
 
-<header class="w-full">
+<header class="w-full bg-white">
     <div
-        class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center bg-white"
+        class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center h-24"
     >
         <img
             src="/assets/navegacion-logotipo.png"
@@ -12,8 +12,6 @@
             class="h-16 w-auto"
         />
         <div class="flex gap-4 opacity-70">
-            <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
-            <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
             <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
             <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
         </div>
@@ -26,65 +24,98 @@
             <nav
                 class="flex gap-8 text-sm font-semibold uppercase tracking-wide"
             >
-                <a href="#" class="flex items-center gap-1 hover:text-gray-200"
-                    >CONÓCENOS ▾</a
-                >
-                <a href="#" class="flex items-center gap-1 hover:text-gray-200"
-                    >CONSULTAS ▾</a
-                >
-                <a href="#" class="flex items-center gap-1 hover:text-gray-200"
-                    >SALA DE PRENSA ▾</a
-                >
-                <a href="#" class="flex items-center gap-1 hover:text-gray-200"
-                    >TRANSPARENCIA ▾</a
-                >
-                <a href="#" class="hover:text-gray-200">ESTUDIANTES</a>
+                <div class="relative group cursor-pointer">
+                    <span class="flex items-center gap-1">CONÓCENOS ▾</span>
+                    <ul
+                        class="absolute left-0 top-full hidden group-hover:block bg-white text-[#56653a] shadow-lg w-52 py-2 z-[999]"
+                    >
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">¿Quiénes Somos?</a>
+                        </li>
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Estructura</a>
+                        </li>
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Observatorio Judicial</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="relative group cursor-pointer">
+                    <span class="flex items-center gap-1">SALA DE PRENSA ▾</span
+                    >
+                    <ul
+                        class="absolute left-0 top-full hidden group-hover:block bg-white text-[#56653a] shadow-lg w-52 py-2 z-[999]"
+                    >
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Boletines Judiciales</a>
+                        </li>
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Calendario de Labores</a>
+                        </li>
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Comunicados</a>
+                        </li>
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Entrevistas</a>
+                        </li>
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Noticias</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="relative group cursor-pointer">
+                    <span class="flex items-center gap-1">TRANSPARECIA ▾</span>
+                    <ul
+                        class="absolute left-0 top-full hidden group-hover:block bg-white text-[#56653a] shadow-lg w-52 py-2 z-[999]"
+                    >
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Transparencia</a>
+                        </li>
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Transparencia Proactiva</a>
+                        </li>
+                        <li class="px-4 py-2 hover:bg-gray-100">
+                            <a href="#">Armonización Contable</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#" class="hover:text-gray-200">ESTUDIANTES ▾</a>
             </nav>
 
             <div
-                class="buscador-container w-64 h-9 bg-white rounded flex items-center px-2 border border-gray-300"
+                id="mi-buscador"
+                class="w-[300px] bg-white rounded overflow-hidden"
             >
-                <svg
-                    class="w-5 h-5 text-gray-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-                <div class="gcse-searchbox-only w-full"></div>
+                <div class="gcse-searchbox-only"></div>
             </div>
         </div>
     </div>
 </header>
 
 <style is:global>
-    .buscador-container .gsc-control-cse {
-        padding: 0 !important;
-        border: none !important;
-        background: transparent !important;
-    }
-    .buscador-container .gsc-input-box {
-        border: none !important;
-        background: transparent !important;
-        box-shadow: none !important;
-    }
-    .buscador-container input.gsc-input {
-        padding: 0 5px !important;
-        height: 30px !important;
-        font-size: 14px !important;
-    }
-    .buscador-container .gsc-search-button {
+    header ~ .gsc-control-cse,
+    body > .gsc-control-cse {
         display: none !important;
     }
-    .buscador-container .gsc-branding-text {
-        font-size: 10px !important;
-        color: #777 !important;
+    #mi-buscador .gsc-control-cse {
+        padding: 5px !important;
+        background: white !important;
+        border: none !important;
+        width: 100% !important;
+    }
+    .gsc-branding {
+        display: block !important;
     }
 </style>
 
+<script is:inline>
+    const observer = new MutationObserver((mutations) => {
+        const phantom = document.querySelectorAll("body > .gsc-control-cse");
+        phantom.forEach((el) => el.remove());
+    });
+    observer.observe(document.body, { childList: true });
+</script>
 <script async src="https://cse.google.com/cse.js?cx=33664f175580b4923"></script>
