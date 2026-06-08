@@ -1,0 +1,111 @@
+---
+// src/components/Carrusel.astro
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+const slides = [
+    {
+        src: "/assets/carrusel-magistrada-magistrado-por-un-dia-2026-resultados.jpg",
+        alt: "Resultados Magistrado",
+    },
+    {
+        src: "/assets/carrusel-cambio-domicilio-2026-04-27-actuarios.jpg",
+        alt: "Cambio domicilio actuarios",
+    },
+    {
+        src: "/assets/carrusel-cambio-domicilio-2026-04-27-mercantil-letrados.jpg",
+        alt: "Cambio domicilio mercantil y letrados",
+    },
+    {
+        src: "/assets/carrusel-cambio-domicilio-2026-04-13-cemasc.jpg",
+        alt: "Cambio domicilio cemasc",
+    },
+    {
+        src: "/assets/carrusel-cambio-domicilio-2026-04-13.jpg",
+        alt: "Cambio domicilio uda",
+    },
+    {
+        src: "/assets/carrusel-diplomado-cnpcf-2026-1.jpg",
+        alt: "Diplomado iej",
+    },
+    {
+        src: "/assets/carrusel-cambio-domicilio-2026-03-17.jpg",
+        alt: "Cambio de domicilio juzgados",
+    },
+    {
+        src: "/assets/carrusel-informe-anual-de-actividades-2025-3.jpg",
+        alt: "Informe anual",
+    },
+    {
+        src: "/assets/carrusel-comision-transicion-plan-de-trabajo.jpg",
+        alt: "Comision plan de trabajo",
+    },
+    {
+        src: "/assets/carrusel-protocolo-acceso-justicia-personas-discapacidad.jpg",
+        alt: "Justicia personas con discapacidad",
+    },
+    {
+        src: "/assets/carrusel-generico-2025.jpg",
+        alt: "Carrusel generico 2025",
+    },
+    { src: "/assets/carrusel-whatsapp-2025.jpg", alt: "Carrusel Whatsapp" },
+    {
+        src: "/assets/carrusel-justicia-para-ti.jpg",
+        alt: "Carrusel justicia para ti",
+    },
+];
+---
+
+<div
+    class="swiper mySwiper w-full h-auto min-h-[300px] shadow-lg rounded-xl bg-gray-100 overflow-hidden"
+>
+    <div class="swiper-wrapper">
+        {
+            slides.map((slide) => (
+                <div class="swiper-slide flex items-center justify-center">
+                    <img
+                        src={slide.src}
+                        alt={slide.alt}
+                        class="w-full h-auto max-h-125 object-contain"
+                    />
+                </div>
+            ))
+        }
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev text-white! w-8!"></div>
+    <div class="swiper-button-next text-white! w-8!"></div>
+</div>
+
+<script>
+    import Swiper from "swiper";
+    import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+    new Swiper(".mySwiper", {
+        modules: [Navigation, Pagination, Autoplay],
+        loop: true,
+        autoplay: { delay: 4000, disableOnInteraction: false }, // Aumenté un poco el tiempo para leer mejor
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+<style is:global>
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 1.5rem !important;
+        font-weight: bold;
+        color: #56653a !important; /* Cambiado a tu color institucional para mejor contraste */
+        background: rgba(255, 255, 255, 0.7);
+        padding: 10px;
+        border-radius: 50%;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: #56653a !important;
+    }
+</style>

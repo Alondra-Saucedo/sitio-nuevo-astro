@@ -1,0 +1,92 @@
+---
+import LayoutPJ from "../layouts/LayoutPJ.astro";
+import HeaderPJ from "../components/HeaderPJ.astro";
+import FooterPJ from "../components/FooterPJ.astro";
+import Carrusel from "../components/Carrusel.astro";
+
+// Datos configurados directamente en el index
+const sesiones = [
+    {
+        title: "Pleno del TSJ",
+        date: "13 de mayo de 2026",
+        img: "transmisiones-sesiones-pleno.png",
+    },
+    {
+        title: "Sala Civil y Mercantil",
+        date: "2 de junio de 2026",
+        img: "transmisiones-sesiones-civil-mercantil.png",
+    },
+    {
+        title: "Sala Familiar",
+        date: "27 de mayo de 2026",
+        img: "transmisiones-sesiones-familiar.png",
+    },
+    {
+        title: "Sala Penal",
+        date: "27 de mayo de 2026",
+        img: "transmisiones-sesiones-penal.png",
+    },
+    {
+        title: "Sala Regional",
+        date: "25 de marzo de 2026",
+        img: "transmisiones-sesiones-regional.png",
+    },
+];
+---
+
+<LayoutPJ title="Inicio - Modernización PJECZ">
+    <HeaderPJ />
+    <Carrusel />
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <section class="mt-20 mb-16">
+            <h2
+                class="text-3xl font-bold text-gray-800 text-center mb-12 tracking-tight"
+            >
+                Transmisiones de sesiones en vivo
+            </h2>
+
+            <div class="flex flex-col items-center">
+                <div class="text-center mb-16">
+                    <div
+                        class="relative w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center mb-4 overflow-hidden shadow-sm transition-transform hover:scale-105"
+                    >
+                        <img
+                            src={`/assets/${sesiones[0].img}`}
+                            alt={sesiones[0].title}
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800">
+                        {sesiones[0].title}
+                    </h3>
+                    <p class="text-sm text-gray-500">{sesiones[0].date}</p>
+                </div>
+
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-4xl"
+                >
+                    {
+                        sesiones.slice(1).map((sala) => (
+                            <div class="text-center group">
+                                <div class="relative w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center mb-4 overflow-hidden shadow-sm transition-transform duration-300 group-hover:scale-105">
+                                    <img
+                                        src={`/assets/${sala.img}`}
+                                        alt={sala.title}
+                                        class="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <h4 class="font-bold text-gray-800 text-sm">
+                                    {sala.title}
+                                </h4>
+                                <p class="text-xs text-gray-500">{sala.date}</p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <FooterPJ />
+</LayoutPJ>

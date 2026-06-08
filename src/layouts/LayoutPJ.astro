@@ -1,0 +1,30 @@
+---
+// src/layouts/LayoutPJ.astro
+const { title = "Poder Judicial del Estado de Coahuila" } = Astro.props;
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <!-- El script de Google debe ir aquí en el head -->
+        <script async src="https://cse.google.com/cse.js?cx=33664f175580b4923"
+        ></script>
+    </head><div class="gcse-search"></div>
+
+    <body
+        class="bg-gray-50 text-gray-900 min-h-screen flex flex-col justify-between"
+    >
+        <!-- Asegúrate de incluir tu componente HeaderPJ aquí -->
+        <slot />
+
+        <main class="grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Contenido de la página -->
+        </main>
+    </body>
+
+
+</html>
